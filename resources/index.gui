@@ -1,0 +1,4 @@
+<svg>
+  <use id="myBarWidget1" href="#barWidget"/>
+  <use id="myBarWidget2" href="#barWidget"/>
+</svg>
