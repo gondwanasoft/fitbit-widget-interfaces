@@ -47,7 +47,14 @@ export default (id) => {
     fillRectEl.width = width * value
   }
 
+  el.bigFunction = x => {     // This function is just to waste memory, to verify that code isn't copied into each instance of el.
+    x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7;
+    return x
+  }
+
   return el   // This is the standard DOM element (<use>? <symbol>?), souped up with new and overridden members.
 }
 
 // Should define getters if calling code might be expected to use them.
+// TODO Does defining properties on el result in duplicated code?
+// TODO What is the impact of this on getBBox()?
