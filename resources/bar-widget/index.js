@@ -1,7 +1,4 @@
-import document from "document"
-
-export default (id) => {
-  const el = document.getElementById(id)
+export default (el) => {
   const fillRectEl = el.getElementById('fillRect')
   let width
   let value = 0   // range: 0 to 1
@@ -19,6 +16,10 @@ export default (id) => {
   Object.defineProperty(el, 'width', {
     // Override default property. Default property won't work because new width also depends on value.
     // Must use defineProperty because el is an extant object, so we can't use set within it.
+    // getBBox() results will be misleading because they'll be based on the initial size of the element and
+    // won't take this width into account. This could possibly be addressed by overriding getBBox() but the
+    // cost of doing so probably isn't justified. A compromise may be to override getBBox() but return undefined.
+    // $ in SVG probably won't work as expected either.
     set(newWidth) {
       width = newWidth
       redraw()
@@ -56,5 +57,3 @@ export default (id) => {
 }
 
 // Should define getters if calling code might be expected to use them.
-// TODO Does defining properties on el result in duplicated code?
-// TODO What is the impact of this on getBBox()?

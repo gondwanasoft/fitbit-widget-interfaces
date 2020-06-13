@@ -1,9 +1,10 @@
+import document from 'document'
 import { memory } from 'system'
 import barWidget from '../resources/bar-widget'
 
 let memBefore = memory.js.used
 let memAfter
-const myBarWidget1 = barWidget('myBarWidget1')
+const myBarWidget1 = barWidget(document.getElementById('myBarWidget1'))
 memAfter = memory.js.used; console.log(`mem used instantiating object = ${memAfter-memBefore}`); memBefore = memAfter
 
 myBarWidget1.x = 0                    // not overridden in barWidget, so inherits the member from <use>
@@ -15,7 +16,7 @@ myBarWidget1.style.display = 'inline' // not overridden in barWidget, so inherit
 console.log(`${myBarWidget1.bigFunction(6)}`)
 
 // The below is equivalent to the above, but demonstrates that the elements can be manipulated independently (ie, object properties aren't shared).
-const myBarWidget2 = barWidget('myBarWidget2')
+const myBarWidget2 = barWidget(document.getElementById('myBarWidget2'))
 memAfter = memory.js.used; console.log(`mem used instantiating object = ${memAfter-memBefore}`); memBefore = memAfter
 
 myBarWidget2.x = 100
