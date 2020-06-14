@@ -1,5 +1,5 @@
 <defs>
-  <symbol id="barExtendsElementWidget">
+  <symbol id="barContainsElementWidget">
     <rect id="fillRect" height="100%" fill="#ffff00" />
   </symbol>
 </defs>

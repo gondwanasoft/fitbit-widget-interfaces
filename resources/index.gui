@@ -1,4 +1,4 @@
 <svg>
-  <use id="myBarExtendsElementWidget1" href="#barWidget"/>
-  <use id="myBarExtendsElementWidget2" href="#barWidget"/>
+  <use id="myBarExtendsElementWidget1" href="#barExtendsElementWidget"/>
+  <use id="myBarExtendsElementWidget2" href="#barExtendsElementWidget"/>
 </svg>
