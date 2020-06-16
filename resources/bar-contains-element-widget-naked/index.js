@@ -8,7 +8,7 @@ export default (el) => {
 
   let style = el.style
 
-  function redraw() {
+  const redraw = () => {
     // This is a private function because it's not defined on the return object (el).
     // Call this function whenever there's a change to any of the variables on which it depends.
     // Problem: redraw won't be called automatically if el.width is changed. Setting value will redraw, or could expose redraw in interface.
@@ -20,7 +20,8 @@ export default (el) => {
     return x
   }
 
-  return {
+  const publicInterface = {
+    // This is the object that we will make available to calling code.
     get element() {   // Can be used to manipulate members such as .x. If the client code maniplates the element directly, this member isn't needed.
       return el
     },
@@ -30,6 +31,19 @@ export default (el) => {
     },
     bigFunction
   }
+
+  return publicInterface
+
+  /*return {
+    get element() {   // Can be used to manipulate members such as .x. If the client code maniplates the element directly, this member isn't needed.
+      return el
+    },
+    set value(newValue) {
+      value = newValue
+      redraw()
+    },
+    bigFunction
+  }*/
 }
 
 // Should define getters if calling code might be expected to use them.

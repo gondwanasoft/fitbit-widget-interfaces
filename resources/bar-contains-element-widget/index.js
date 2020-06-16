@@ -2,8 +2,8 @@ export default (el) => {
   const fillRectEl = el.getElementById('fillRect')
   let value = 0   // range: 0 to 1
 
-  function redraw() {
-    // This is a private function because it's not defined on the return object (el).
+  const redraw = () => {
+    // This is a private function because it's not included in publicInterface.
     // Call this function whenever there's a change to any of the variables on which it depends.
     fillRectEl.width = el.width * value
   }
@@ -13,7 +13,8 @@ export default (el) => {
     return x
   }
 
-  return {
+  const publicInterface = {
+    // This is the object that we will make available to calling code.
     // We have to define all commonly-used Element members because the returned object isn't an Element.
     set x(newX) {
       el.x = newX
@@ -37,6 +38,8 @@ export default (el) => {
     },
     bigFunction
   }
+
+  return publicInterface
 }
 
 // Should define getters if calling code might be expected to use them.
