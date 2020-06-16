@@ -3,16 +3,6 @@ export default (el) => {
   let width
   let value = 0   // range: 0 to 1
 
-  let style = el.style
-
-  Object.defineProperty(style, 'fill', {
-    // Override default property. Default property won't work because it doesn't know to manipulate fillRectEl.
-    // Must use defineProperty because style is an extant object, so we can't use set within it.
-    set(newFill) {
-      fillRectEl.style.fill = newFill
-    }
-  })
-
   Object.defineProperty(el, 'width', {
     // Override default property. Default property won't work because new width also depends on value.
     // Must use defineProperty because el is an extant object, so we can't use set within it.
@@ -21,7 +11,7 @@ export default (el) => {
     // cost of doing so probably isn't justified. A compromise may be to override getBBox() but return undefined.
     // $ in SVG probably won't work as expected either.
     set(newWidth) {
-      width = newWidth
+      el.getElementById('background').width = width = newWidth
       redraw()
       // Tip: don't try el.width=newWidth; it will recurse.
     }
@@ -35,11 +25,6 @@ export default (el) => {
       value = newValue
       redraw()
     }
-  })
-
-  Object.defineProperty(el, 'style', {
-    // Replace element style with our version that contains an override.
-    get() {return style}
   })
 
   function redraw() {

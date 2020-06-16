@@ -1,4 +1,8 @@
 <svg>
-  <use id="myBarExtendsElementWidget1" href="#barExtendsElementWidget"/>
-  <use id="myBarExtendsElementWidget2" href="#barExtendsElementWidget"/>
+  <use id="myBarExtendsElementwidget" href="#barExtendsElementWidget" />
+  <use id="myBarContainsElementwidget" href="#barContainsElementWidget" />
+  <use id="myBarContainsElementwidgetNaked" href="#barContainsElementWidgetNaked" />
+  <use id="myBarContainsElementwidgetNaked2" href="#barContainsElementWidgetNaked" />
+  <use id="mybarContainsElementWidgetNew" href="#barContainsElementWidgetNew" />
+  <use id="mybarContainsElementWidgetClass" href="#barContainsElementWidgetClass" />
 </svg>

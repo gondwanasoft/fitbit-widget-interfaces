@@ -1,10 +1,17 @@
+// This is the same as bar-contains-element-widget, but doesn't return properties for 'standard' element manipulation;
+// eg, .x, .width, .style
+// Client code must do those things my manipulating the element, rather than the widget.
+
 export default (el) => {
   const fillRectEl = el.getElementById('fillRect')
   let value = 0   // range: 0 to 1
 
+  let style = el.style
+
   function redraw() {
     // This is a private function because it's not defined on the return object (el).
     // Call this function whenever there's a change to any of the variables on which it depends.
+    // Problem: redraw won't be called automatically if el.width is changed. Setting value will redraw, or could expose redraw in interface.
     fillRectEl.width = el.width * value
   }
 
@@ -14,26 +21,12 @@ export default (el) => {
   }
 
   return {
-    // We have to define all commonly-used Element members because the returned object isn't an Element.
-    set x(newX) {
-      el.x = newX
-    },
-    set y(newY) {
-      el.y = newY
-    },
-    set width(newWidth) {
-      el.getElementById('background').width = el.width = newWidth
-      redraw()
-    },
-    set height(newHeight) {
-      el.height = newHeight
+    get element() {   // Can be used to manipulate members such as .x. If the client code maniplates the element directly, this member isn't needed.
+      return el
     },
     set value(newValue) {
       value = newValue
       redraw()
-    },
-    get style() {
-      return el.style
     },
     bigFunction
   }
