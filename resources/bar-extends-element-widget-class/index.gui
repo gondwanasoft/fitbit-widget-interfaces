@@ -1,0 +1,6 @@
+<defs>
+  <symbol id="barExtendsElementWidgetClass">
+    <rect id="background" height="100%" fill="#404040" />
+    <rect id="fillRect" height="100%" fill="inherit" />
+  </symbol>
+</defs>

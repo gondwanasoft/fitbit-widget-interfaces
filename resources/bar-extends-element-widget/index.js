@@ -1,3 +1,5 @@
+// TODO 2 If I add members to el, will they be duplicated in all instances of widget?
+
 export default (el) => {
   const fillRectEl = el.getElementById('fillRect')
   let width

@@ -7,5 +7,6 @@
     <link rel="import" href="bar-contains-element-widget-naked/index.gui" />
     <link rel="import" href="bar-contains-element-widget-new/index.gui" />
     <link rel="import" href="bar-contains-element-widget-class/index.gui" />
+    <link rel="import" href="bar-extends-element-widget-class/index.gui" />
   </defs>
 </svg>

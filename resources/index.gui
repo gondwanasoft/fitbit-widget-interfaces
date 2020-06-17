@@ -5,4 +5,5 @@
   <use id="myBarContainsElementwidgetNaked2" href="#barContainsElementWidgetNaked" />
   <use id="mybarContainsElementWidgetNew" href="#barContainsElementWidgetNew" />
   <use id="mybarContainsElementWidgetClass" href="#barContainsElementWidgetClass" />
+  <use id="mybarExtendsElementWidgetClass" href="#barExtendsElementWidgetClass" />
 </svg>

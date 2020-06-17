@@ -6,6 +6,7 @@ import barContainsElementWidget from '../resources/bar-contains-element-widget'
 import barContainsElementWidgetNaked from '../resources/bar-contains-element-widget-naked'
 import { barContainsElementWidgetNew } from '../resources/bar-contains-element-widget-new'
 import { barContainsElementWidgetClass } from '../resources/bar-contains-element-widget-class'
+import { barExtendsElementWidgetClass } from '../resources/bar-extends-element-widget-class'
 
 const heartSensor = new HeartRateSensor({ frequency: 1 })
 heartSensor.addEventListener('reading', onHeartReading)
@@ -23,11 +24,12 @@ let memBefore = memory.js.used
 const myBarExtendsElementwidget = barExtendsElementWidget(myBarExtendsElementwidgetEl)
 memAfter = memory.js.used; console.log(`mem used instantiating myBarExtendsElementwidget = ${memAfter-memBefore}`); memBefore = memAfter
 myBarExtendsElementwidget.x = 50                    // not overridden in barExtendsElementWidget, so inherits the member from <use>
+myBarExtendsElementwidget.y = 10                    // not overridden in barExtendsElementWidget, so inherits the member from <use>
 myBarExtendsElementwidget.width = 200               // overridden in barExtendsElementWidget
-myBarExtendsElementwidget.height = 40             // not overridden in barExtendsElementWidget, so inherits the member from <use>
+myBarExtendsElementwidget.height = 20             // not overridden in barExtendsElementWidget, so inherits the member from <use>
 myBarExtendsElementwidget.style.fill = 'blue'   // overridden in barExtendsElementWidget
 console.log(`${myBarExtendsElementwidget.bigFunction(6)}`)
-console.log(`myBarExtendsElementwidget.id=${myBarExtendsElementwidget.id}`)   // not overridden in barExtendsElementWidget, so inherits the member from <use>
+console.log(`myBarExtendsElementwidget.id=${myBarExtendsElementwidget.id}`)   // not overridden in barExtendsElementWidget so uses member from Element
 
 // A barContainsElementWidget.
 // Some Element members (eg, .x) are provided by code in barContainsElementWidget.
@@ -41,9 +43,9 @@ memBefore = memory.js.used
 const myBarContainsElementwidget = barContainsElementWidget(myBarContainsElementwidgetEl)
 memAfter = memory.js.used; console.log(`mem used instantiating myBarContainsElementwidget = ${memAfter-memBefore}`); memBefore = memAfter
 myBarContainsElementwidget.x = 50
-myBarContainsElementwidget.y = 50
+myBarContainsElementwidget.y = 40
 myBarContainsElementwidget.width = 200
-myBarContainsElementwidget.height = 40
+myBarContainsElementwidget.height = 20
 myBarContainsElementwidget.style.fill = 'green'
 console.log(`${myBarContainsElementwidget.bigFunction(7)}`)
 console.log(`myBarContainsElementwidget.id=${myBarContainsElementwidget.id}`)      // .id is not provided by barContainsElementWidget, so doesn't work
@@ -55,10 +57,10 @@ memBefore = memory.js.used
 const myBarContainsElementwidgetNaked = barContainsElementWidgetNaked(myBarContainsElementwidgetNakedEl)
 memAfter = memory.js.used; console.log(`mem used instantiating myBarContainsElementwidgetNaked = ${memAfter-memBefore}`); memBefore = memAfter
 myBarContainsElementwidgetNakedEl.x = 50                // can't set x on the widget; have to set it on the Element
-myBarContainsElementwidgetNakedEl.y = 100               // can't set y on the widget; have to set it on the Element
+myBarContainsElementwidgetNakedEl.y = 70               // can't set y on the widget; have to set it on the Element
 myBarContainsElementwidgetNakedEl.width = 200           // can't set width on the widget; have to set it on the Element
 // Problem: setting .width won't prompt the widget to redraw. Changing .value will do so. Other solutions are possible.
-myBarContainsElementwidgetNakedEl.height = 40           // can't set height on the widget; have to set it on the Element
+myBarContainsElementwidgetNakedEl.height = 20           // can't set height on the widget; have to set it on the Element
 myBarContainsElementwidgetNakedEl.style.fill = 'red'    // can't set style on the widget; have to set it on the Element
 console.log(`${myBarContainsElementwidgetNaked.bigFunction(7)}`)
 console.log(`myBarContainsElementwidgetNaked.id=${myBarContainsElementwidgetNaked.id}`)  // .id is not provided by barContainsElementWidgetNaked, so doesn't work
@@ -72,10 +74,10 @@ memBefore = memory.js.used
 const myBarContainsElementwidgetNaked2 = barContainsElementWidgetNaked(myBarContainsElementwidgetNakedEl2)
 memAfter = memory.js.used; console.log(`mem used instantiating myBarContainsElementwidgetNaked2 = ${memAfter-memBefore}`); memBefore = memAfter
 myBarContainsElementwidgetNaked2.element.x = 50                // can't set x on the widget; have to set it on the Element
-myBarContainsElementwidgetNaked2.element.y = 150               // can't set y on the widget; have to set it on the Element
+myBarContainsElementwidgetNaked2.element.y = 100               // can't set y on the widget; have to set it on the Element
 myBarContainsElementwidgetNaked2.element.width = 200           // can't set width on the widget; have to set it on the Element
 // Problem: setting .width won't prompt the widget to redraw. Changing .value will do so. Other solutions are possible.
-myBarContainsElementwidgetNaked2.element.height = 40           // can't set height on the widget; have to set it on the Element
+myBarContainsElementwidgetNaked2.element.height = 20           // can't set height on the widget; have to set it on the Element
 myBarContainsElementwidgetNaked2.element.style.fill = 'white'    // can't set style on the widget; have to set it on the Element
 console.log(`${myBarContainsElementwidgetNaked2.bigFunction(7)}`)
 console.log(`myBarContainsElementwidgetNaked2.id=${myBarContainsElementwidgetNaked2.id}`)  // .id is not provided by barContainsElementWidgetNaked, so doesn't work
@@ -88,9 +90,9 @@ let memBefore = memory.js.used
 const mybarContainsElementWidgetNew = new barContainsElementWidgetNew(mybarContainsElementWidgetNewEl)
 memAfter = memory.js.used; console.log(`mem used instantiating mybarContainsElementWidgetNew = ${memAfter-memBefore}`); memBefore = memAfter
 mybarContainsElementWidgetNew.x = 50
-mybarContainsElementWidgetNew.y = 200
+mybarContainsElementWidgetNew.y = 130
 mybarContainsElementWidgetNew.width = 200
-mybarContainsElementWidgetNew.height = 40
+mybarContainsElementWidgetNew.height = 20
 mybarContainsElementWidgetNew.style.fill = 'yellow'
 console.log(`${mybarContainsElementWidgetNew.bigFunction(6)}`)
 console.log(`mybarContainsElementWidgetNew.id=${mybarContainsElementWidgetNew.id}`)                 // won't work because widget isn't an Element and it doesn't implement .id
@@ -103,14 +105,28 @@ let memBefore = memory.js.used
 const mybarContainsElementWidgetClass = new barContainsElementWidgetClass(mybarContainsElementWidgetClassEl)
 memAfter = memory.js.used; console.log(`mem used instantiating mybarContainsElementWidgetClass = ${memAfter-memBefore}`); memBefore = memAfter
 mybarContainsElementWidgetClass.x = 50
-mybarContainsElementWidgetClass.y = 250
+mybarContainsElementWidgetClass.y = 160
 mybarContainsElementWidgetClass.width = 200
-mybarContainsElementWidgetClass.height = 40
+mybarContainsElementWidgetClass.height = 20
 mybarContainsElementWidgetClass.style.fill = 'cyan'
 console.log(`${mybarContainsElementWidgetClass.bigFunction(8)}`)
 console.log(`mybarContainsElementWidgetClass.id=${mybarContainsElementWidgetClass.id}`)                 // won't work because widget isn't an Element and it doesn't implement .id
 console.log(`mybarContainsElementWidgetClassEl.id=${mybarContainsElementWidgetClassEl.id}`)             // works, but requires use of a different object (the Element rather than the widget)
 console.log(`mybarContainsElementWidgetClass.element.id=${mybarContainsElementWidgetClass.element.id}`) // works, but requires non-standard syntax (.element), and .element to be implemented in widget
+
+// A barExtendsElementWidgetClass.
+const mybarExtendsElementWidgetClassEl = document.getElementById('mybarExtendsElementWidgetClass')
+let memBefore = memory.js.used
+const mybarExtendsElementWidgetClass = new barExtendsElementWidgetClass(mybarExtendsElementWidgetClassEl)
+memAfter = memory.js.used; console.log(`mem used instantiating mybarExtendsElementWidgetClass = ${memAfter-memBefore}`); memBefore = memAfter
+mybarExtendsElementWidgetClass.x = 50
+mybarExtendsElementWidgetClass.y = 190
+mybarExtendsElementWidgetClass.width = 200
+mybarExtendsElementWidgetClass.height = 20
+mybarExtendsElementWidgetClass.style.fill = 'magenta'
+mybarExtendsElementWidgetClass.value = 0.5
+console.log(`${mybarExtendsElementWidgetClass.bigFunction(9)}`)
+console.log(`mybarExtendsElementWidgetClass.id=${mybarExtendsElementWidgetClass.id}`)                 // works because mybarExtendsElementWidgetClass IS an Element
 
 // I was going to include two additional widgets that were accessed via global functions rather than OOP-like members,
 // like fitbit-widget's 7-segment (first version).
@@ -124,6 +140,7 @@ function onHeartReading() {
   myBarContainsElementwidgetNaked2.value = value
   mybarContainsElementWidgetNew.value = value
   mybarContainsElementWidgetClass.value = value
+  mybarExtendsElementWidgetClass.value = value
 
   const display = value? 'inline' : 'none'
   myBarExtendsElementwidget.style.display = display
@@ -132,6 +149,7 @@ function onHeartReading() {
   myBarContainsElementwidgetNaked2.element.style.display = display
   mybarContainsElementWidgetNew.style.display = display
   mybarContainsElementWidgetClass.style.display = display
+  mybarExtendsElementWidgetClass.style.display = display
 }
 
 // TODO 3.9 try to reduce mem (use more const functions?). See if tree-shaking can remove unused interface members. Look for fingerprint in snapshot.
