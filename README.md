@@ -1,4 +1,6 @@
 # fitbit-widget-interfaces
+![Image](fitbit-widget-interfaces.png "screenshot")
+
 This repo began life as an experiment in providing different _interfaces_ for Fitbit widgets (components). This raised questions about which interfaces could be provided by the different forms of JS module structure (class vs. closure).
 
 The repo displays several versions of a simple progress bar widget. Each widget is a JS object. The members of the object provide the widget's public interface; _ie_, properties (variables) and methods (functions) that calling code can use to manipulate the widget.
