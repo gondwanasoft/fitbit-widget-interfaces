@@ -38,8 +38,7 @@ const myBarClosureContainsElementWidgetNaked = barClosureContainsElementWidgetNa
 memAfter = memory.js.used; console.log(`mem used instantiating myBarClosureContainsElementWidgetNaked = ${memAfter-memBefore}`); memBefore = memAfter
 myBarClosureContainsElementWidgetNakedEl.x = 50                // can't set x on the widget; have to set it on the Element
 myBarClosureContainsElementWidgetNakedEl.y = 40                // can't set y on the widget; have to set it on the Element
-myBarClosureContainsElementWidgetNakedEl.width = 200           // can't set width on the widget; have to set it on the Element
-// Problem: setting .width won't prompt the widget to redraw. Changing .value will do so. Other solutions are possible.
+myBarClosureContainsElementWidgetNaked.width = 200             // have to set width on the widget because it provides behaviour necessary for correct display - inconsistency!
 myBarClosureContainsElementWidgetNakedEl.height = 20           // can't set height on the widget; have to set it on the Element
 myBarClosureContainsElementWidgetNakedEl.style.fill = 'red'    // can't access style via the widget; have to access it via the Element
 console.log(`${myBarClosureContainsElementWidgetNaked.bigFunction(7)}`)
@@ -54,9 +53,8 @@ memBefore = memory.js.used
 const myBarClosureContainsElementWidgetNaked2 = barClosureContainsElementWidgetNaked(myBarClosureContainsElementWidgetNakedEl2)
 memAfter = memory.js.used; console.log(`mem used instantiating myBarClosureContainsElementWidgetNaked2 = ${memAfter-memBefore}`); memBefore = memAfter
 myBarClosureContainsElementWidgetNaked2.element.x = 50                // can't set member directly on the widget, but can set it via .element
-myBarClosureContainsElementWidgetNaked2.element.y = 70               // "
-myBarClosureContainsElementWidgetNaked2.element.width = 200           // "
-// Problem: setting .width won't prompt the widget to redraw. Changing .value will do so. Other solutions are possible.
+myBarClosureContainsElementWidgetNaked2.element.y = 70                // "
+myBarClosureContainsElementWidgetNaked2.width = 200                   // have to set width directly on the widget because it provides behaviour necessary for correct display - inconsistency!
 myBarClosureContainsElementWidgetNaked2.element.height = 20
 myBarClosureContainsElementWidgetNaked2.element.style.fill = 'white'
 console.log(`${myBarClosureContainsElementWidgetNaked2.bigFunction(7)}`)

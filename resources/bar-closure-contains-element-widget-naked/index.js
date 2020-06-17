@@ -11,7 +11,6 @@ export default (el) => {
   const redraw = () => {
     // This is a private function because it's not defined on the return object (el).
     // Call this function whenever there's a change to any of the variables on which it depends.
-    // Problem: redraw won't be called automatically if el.width is changed. Setting value will redraw, or could expose redraw in interface.
     fillRectEl.width = el.width * value
   }
 
@@ -24,6 +23,11 @@ export default (el) => {
     // This is the object that we will make available to calling code.
     get element() {   // Can be used to manipulate members such as .x. If the client code maniplates the element directly, this member isn't needed.
       return el
+    },
+    set width(newWidth) {
+      console.log(`set width ${newWidth}`)
+      el.width = newWidth
+      redraw()
     },
     set value(newValue) {
       value = newValue
