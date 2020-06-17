@@ -1,9 +1,9 @@
 <svg>
-  <use id="myBarExtendsElementwidget" href="#barExtendsElementWidget" />
-  <use id="myBarContainsElementwidget" href="#barContainsElementWidget" />
-  <use id="myBarContainsElementwidgetNaked" href="#barContainsElementWidgetNaked" />
-  <use id="myBarContainsElementwidgetNaked2" href="#barContainsElementWidgetNaked" />
-  <use id="mybarContainsElementWidgetNew" href="#barContainsElementWidgetNew" />
-  <use id="mybarContainsElementWidgetClass" href="#barContainsElementWidgetClass" />
-  <use id="mybarExtendsElementWidgetClass" href="#barExtendsElementWidgetClass" />
+  <use id="myBarClosureExtendsElementWidget" href="#barClosureExtendsElementWidget" />
+  <use id="myBarClosureContainsElementWidget" href="#barClosureContainsElementWidget" />
+  <use id="myBarClosureContainsElementWidgetNaked" href="#barClosureContainsElementWidgetNaked" />
+  <use id="myBarClosureContainsElementWidgetNaked2" href="#barClosureContainsElementWidgetNaked" />
+  <use id="mybarClass5ContainsElementWidget" href="#barClass5ContainsElementWidget" />
+  <use id="mybarClass6ContainsElementWidget" href="#barClass6ContainsElementWidget" />
+  <use id="mybarClass6ExtendsElementWidget" href="#barClass6ExtendsElementWidget" />
 </svg>

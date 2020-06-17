@@ -1,8 +1,7 @@
-// Same as barContainsElementWidgetNew, but using ES6 'class' syntax.
+// Same as barClass5ContainsElementWidget, but using ES6 'class' syntax.
 // TODO 2 test on phys watch
-// TODO 3 rethink all naming: Class is actually also New. New is also Function.
 
-export class barContainsElementWidgetClass {
+export class barClass6ContainsElementWidget {
 
   constructor(el) {
     this._el = el

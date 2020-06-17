@@ -33,17 +33,6 @@ export default (el) => {
   }
 
   return publicInterface
-
-  /*return {
-    get element() {   // Can be used to manipulate members such as .x. If the client code maniplates the element directly, this member isn't needed.
-      return el
-    },
-    set value(newValue) {
-      value = newValue
-      redraw()
-    },
-    bigFunction
-  }*/
 }
 
 // Should define getters if calling code might be expected to use them.

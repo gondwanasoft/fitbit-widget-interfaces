@@ -1,8 +1,7 @@
-// Same as barContainsElementWidgetClass, but returns Element with overridden members.
-// TODO 3 rethink all naming: Class is actually also New. New is also Function.
-// TODO 2 If I add members to el, will they be duplicated in all instances of widget? If so, see if using el._this=this help
+// Same as barClass6ContainsElementWidget, but returns Element with overridden members.
+// TODO 3.9 If I add members to el, will they be duplicated in all instances of widget? If so, see if using el._this=this help
 
-export class barExtendsElementWidgetClass {
+export class barClass6ExtendsElementWidget {
 
   constructor(el) {
     el._width = 100

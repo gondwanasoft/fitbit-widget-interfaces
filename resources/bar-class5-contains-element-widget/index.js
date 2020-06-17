@@ -1,50 +1,50 @@
-// ES5-style 'new' function. ES6-style barContainsElementWidgetClass is preferable.
+// ES5-style 'new' function. ES6-style barClass6ContainsElementWidget is preferable.
 
-export function barContainsElementWidgetNew(el) {
+export function barClass5ContainsElementWidget(el) {
 
   this._fillRectEl = el.getElementById('fillRect')
   this._width = 100
   this._value = 0   // range: 0 to 1
 
-  Object.defineProperty(barContainsElementWidgetNew.prototype, 'element', {
+  Object.defineProperty(barClass5ContainsElementWidget.prototype, 'element', {
     // Don't have to use xxx.prototype; can just use this.
     get() {
       return el
     }
   })
 
-  Object.defineProperty(barContainsElementWidgetNew.prototype, 'x', {
+  Object.defineProperty(barClass5ContainsElementWidget.prototype, 'x', {
     set(newX) {
       el.x = newX
     }
   })
 
-  Object.defineProperty(barContainsElementWidgetNew.prototype, 'y', {
+  Object.defineProperty(barClass5ContainsElementWidget.prototype, 'y', {
     set(newY) {
       el.y = newY
     }
   })
 
-  Object.defineProperty(barContainsElementWidgetNew.prototype, 'width', {
+  Object.defineProperty(barClass5ContainsElementWidget.prototype, 'width', {
     set(newWidth) {
       el.getElementById('background').width = this._width = newWidth
       this._redraw()
     }
   })
 
-  Object.defineProperty(barContainsElementWidgetNew.prototype, 'height', {
+  Object.defineProperty(barClass5ContainsElementWidget.prototype, 'height', {
     set(newHeight) {
       el.height = newHeight
     }
   })
 
-  Object.defineProperty(barContainsElementWidgetNew.prototype, 'style', {
+  Object.defineProperty(barClass5ContainsElementWidget.prototype, 'style', {
     get() {
       return el.style
     }
   })
 
-  Object.defineProperty(barContainsElementWidgetNew.prototype, 'value', {
+  Object.defineProperty(barClass5ContainsElementWidget.prototype, 'value', {
     // Add new property.
     // value: 0 to 1; proportion of width to be filled.
     // Must use defineProperty because el is an extant object, so we can't use set within it.
@@ -62,7 +62,7 @@ export function barContainsElementWidgetNew(el) {
 
 }
 
-barContainsElementWidgetNew.prototype.bigFunction = x => {     // This function is just to waste memory, to verify that code isn't copied into each instance of el.
+barClass5ContainsElementWidget.prototype.bigFunction = x => {     // This function is just to waste memory, to verify that code isn't copied into each instance of el.
 x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7; x = x + 7;
 return x
 }
