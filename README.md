@@ -1,7 +1,9 @@
 # fitbit-widget-interfaces
 This repo began life as an experiment in providing different _interfaces_ for Fitbit widgets (components). This raised questions about which interfaces could be provided by the different forms of JS module structure (class vs. closure).
 
-The repo displays several versions of a simple progress bar widget. Each widget is a JS object. The members of the object provide the widget's public interface; _ie_, properties (variables) and methods (functions) that calling code can use to manipulate the widget. Each widget is constructed from an Element that refers to a Fitbit SVG <use> statement.
+The repo displays several versions of a simple progress bar widget. Each widget is a JS object. The members of the object provide the widget's public interface; _ie_, properties (variables) and methods (functions) that calling code can use to manipulate the widget.
+
+Each widget is constructed from an Element that refers to a Fitbit SVG \<use> statement. Such elements implement a variety of [interfaces](https://dev.fitbit.com/build/reference/device-api/document) which specify commonly-used members, such as .x and .width. For simplicity and consistency, it's useful if those members can be used on the widget itself. Therefore, the relationship between the widget and its element is important.
 
 All widget instances are instantiated and used in app/index.js. The instances are:
 
